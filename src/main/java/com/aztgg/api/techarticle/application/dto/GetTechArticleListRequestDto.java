@@ -9,7 +9,8 @@ import java.util.List;
 
 public record GetTechArticleListRequestDto(int page,
                                            int pageSize,
-                                           List<String> sort) {
+                                           List<String> sort,
+                                           String source) {
 
     @Builder
     public GetTechArticleListRequestDto {

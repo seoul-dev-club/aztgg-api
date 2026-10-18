@@ -1,6 +1,7 @@
 package com.aztgg.api.techarticle.presentation;
 
 import com.aztgg.api.techarticle.application.dto.GetTechArticleListResponseDto;
+import com.aztgg.api.techarticle.application.dto.GetTechArticleSourceItemDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -35,7 +36,19 @@ public interface TechArticleApi {
                     responseCode = "200",
                     description = "OK"),
     })
+    @Operation(tags = {"TechArticle"}, summary = "TechArticle source 목록 조회", description = """
+            ## API 설명
+            TechArticle의 source 목록을 조회합니다.
+            """)
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "OK"),
+    })
+    List<GetTechArticleSourceItemDto> getTechArticleSources();
+
     GetTechArticleListResponseDto getTechArticleList(int page,
                                                      int pageSize,
-                                                     List<String> sort);
+                                                     List<String> sort,
+                                                     String source);
 }
