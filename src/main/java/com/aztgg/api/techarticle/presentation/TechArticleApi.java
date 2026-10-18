@@ -25,17 +25,6 @@ import java.util.List;
 })
 public interface TechArticleApi {
 
-    @Operation(tags = {"TechArticle"}, summary = "TechArticle 목록 조회", description = """
-            ## API 설명
-            TechArticle 목록을 조회합니다.
-            기본 정렬은 createdAt 내림차순입니다.
-            sort 파라미터 형식: `sort=createdAt,desc`
-            """)
-    @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "OK"),
-    })
     @Operation(tags = {"TechArticle"}, summary = "TechArticle source 목록 조회", description = """
             ## API 설명
             TechArticle의 source 목록을 조회합니다.
@@ -47,6 +36,17 @@ public interface TechArticleApi {
     })
     List<GetTechArticleSourceItemDto> getTechArticleSources();
 
+    @Operation(tags = {"TechArticle"}, summary = "TechArticle 목록 조회", description = """
+            ## API 설명
+            TechArticle 목록을 조회합니다.
+            기본 정렬은 createdAt 내림차순입니다.
+            sort 파라미터 형식: `sort=createdAt,desc`
+            """)
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "OK"),
+    })
     GetTechArticleListResponseDto getTechArticleList(int page,
                                                      int pageSize,
                                                      List<String> sort,
